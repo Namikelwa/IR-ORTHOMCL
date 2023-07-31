@@ -14,7 +14,7 @@ The install step will prompt for a password for the MySQL administrator.
 Install wget and checkinstall. We will use checkinstall to build a debian package (.deb) of OrthoMCL that can be installed, updated or removed easily:
 ```
 sudo apt install wget checkinstall
-Procedure - Install OrthoMCL
+
 ```
 Download and uncompress the OrthoMCL archive
 ```
