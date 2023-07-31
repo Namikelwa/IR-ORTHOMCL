@@ -87,12 +87,12 @@ Run checkinstall to create debian package (note: change email address under main
 Press ENTER to build the package.
 
 
-IF YOU GET AN ERROR TRY THIS; 
+**IF YOU GET AN ERROR RUNNING CHECKINSTALL, TRY THIS:**
 ```
 make install
-```
-sudo checkinstall --install=no --pkgname orthomcl --pkgversion 2.0.9 --pkgrelease 1 --pkglicense gpl --maintainer "selinemnams@gmail.com" --provides orthomcl --exclude /usr/local/lib/perl/5.34.0/perllocal.pod
 
+sudo checkinstall --install=no --pkgname orthomcl --pkgversion 2.0.9 --pkgrelease 1 --pkglicense gpl --maintainer "selinemnams@gmail.com" --provides orthomcl --exclude /usr/local/lib/perl/5.34.0/perllocal.pod
+```
 
 Install generated package
 ```
