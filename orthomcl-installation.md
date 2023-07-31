@@ -61,11 +61,13 @@ EXE_FILES => ['bin/orthomclAdjustFasta',
 Create a Debian package using checkinstall
 
 Use PERL to generate a Makefile
-
+```
  perl Makefile.PL
+```
 Use the generated Makefile to compile source code:
-
+```
  make
+```
 Create a text file called description-pak with a description for the package like the following:
 
  An algorithm for grouping proteins into ortholog groups based on their sequence similarity
@@ -79,10 +81,18 @@ Run checkinstall to create debian package (note: change email address under main
 ```
  sudo checkinstall --install=no --pkgname orthomcl \
  --pkgversion 2.0.9 --pkgrelease 1 --pkglicense gpl \
- --maintainer "you@email.com" --provides orthomcl \
+ --maintainer "selinenams@gmail.com" --provides orthomcl \
  --exclude /usr/local/lib/perl/5.18.2/perllocal.pod make install
 ```
 Press ENTER to build the package.
+
+
+IF YOU GET AN ERROR TRY THIS; 
+```
+make install
+```
+sudo checkinstall --install=no --pkgname orthomcl --pkgversion 2.0.9 --pkgrelease 1 --pkglicense gpl --maintainer "selinemnams@gmail.com" --provides orthomcl --exclude /usr/local/lib/perl/5.34.0/perllocal.pod
+
 
 Install generated package
 ```
@@ -125,18 +135,28 @@ Edit this file using a text editor and update configuration:
   dbConnectString=dbi:mysql:orthomcl:mysql_local_infile=1
   dbLogin=orthomcl
   dbPassword=your-password-here
+```
 Install schema:
-
+```
  sudo orthomclInstallSchema /etc/orthomcl.config install_schema.log
+```
 This command should complete without any errors.
 
 (Optional) Create an orthomcl group
 
 This step is optional and is not in the official documentation. When multiple users require access to the database, they can be added to an user group. Only members in this group will have read access to /etc/orthomcl.config. Here is an example:
-
+```
 sudo groupadd orthomcl
 sudo gpasswd -a vimal orthomcl
+```
 Now update permissions on the file /etc/orthomcl.config:
-
+```
 sudo chgrp orthomcl /etc/orthomcl.config
 sudo chmod 640 /etc/orthomcl.config
+```
+
+
+Download MCL
+```
+sudo apt install mcl
+```
